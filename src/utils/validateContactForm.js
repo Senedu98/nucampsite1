@@ -1,5 +1,3 @@
-import React from 'react'
-
 export const validateContactForm=(values)=> {
     const errors={}
     if(!values.firtname) {

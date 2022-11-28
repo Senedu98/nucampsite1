@@ -1,11 +1,6 @@
-import {useState} from 'react';
+import React, { useState } from 'react';
 import{Button, Modal, ModalHeader, FormGroup, Label} from 'reactstrap';
-import React from 'react'
 import {Formik, Field, Form} from 'formik';
-
-
-
-
 
 const CommentForm =({campsiteId}) => {
 

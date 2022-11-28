@@ -1,33 +1,31 @@
 import { Card, CardImg, CardText, CardBody, CardTitle } from 'reactstrap';
-import { useState, useEffect } from 'react';
-import {useSpring, animated} from 'react-spring';
+import React, { useState, useEffect } from 'react';
+import { useSpring, animated } from 'react-spring';
 
 const AnimatedDisplayCard = ({ item }) => {
-    const { image, name, description } = item;
-    const [toggle, setToggle] = useState(false);
+	const { image, name, description } = item;
+	const [toggle, setToggle] = useState(false);
 
-    const animatedStyle = useSpring({
-        opacity: toggle ? 1 : 0,
-        transform: toggle ? 'scale(1,1)' : 'scale(0,1)',
-        config: { duration: 1000 }
-    });
-    useEffect(() => {
-        setToggle(true);
-    }, []);
+	const animatedStyle = useSpring({
+		opacity: toggle ? 1 : 0,
+		transform: toggle ? 'scale(1,1)' : 'scale(0,1)',
+		config: { duration: 1000 },
+	});
+	useEffect(() => {
+		setToggle(true);
+	}, []);
 
-    return (
-        <animated.div style={animatedStyle}>
-
-        <Card>
-            <CardImg src={image} alt={name} />
-            <CardBody>
-                <CardTitle>{name}</CardTitle>
-                <CardText>{description}</CardText>
-            </CardBody>
-        </Card>
-        </animated.div>
-
-    );
+	return (
+		<animated.div style={animatedStyle}>
+			<Card>
+				<CardImg src={image} alt={name} />
+				<CardBody>
+					<CardTitle>{name}</CardTitle>
+					<CardText>{description}</CardText>
+				</CardBody>
+			</Card>
+		</animated.div>
+	);
 };
 
 export default AnimatedDisplayCard;
